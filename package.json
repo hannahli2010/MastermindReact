@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://hannahli2010.github.io/website/",
   "dependencies": {
+    "@material-ui/core": "^3.9.0",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
