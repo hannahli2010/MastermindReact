@@ -44,6 +44,7 @@ class App extends Component {
 
   output = (guess, secret) => {
     let numString = this.toString(guess) + '   ';
+    let done = true;
     
     let temp = [
       1,
@@ -60,6 +61,8 @@ class App extends Component {
     for (let x = 0; x < 5; x++) {
       if (temp[x] === secret[x]) {
         temp[x] = '*';
+      } else {
+        done = false;
       }
     }
 
@@ -78,12 +81,12 @@ class App extends Component {
     }
 
     numString += this.toString(temp);
-    console.log(this.state.guess);
 
     this.state.enteredGuesses.push(<p>{numString}</p>);
 
     this.setState({
-      enteredGuesses: this.state.enteredGuesses
+      enteredGuesses: this.state.enteredGuesses,
+      button: done ? 'Start' : 'Enter',
     })
   }
 
@@ -107,20 +110,18 @@ class App extends Component {
   handleOnChange = (event) => {
     if (event.target.value.length !== 5) {
       this.setState({
-        errorMsg: 'Invalid number',
         disableB: true
       })
     } else {
       this.enterGuess(event.target.value, this.state.guess)
       this.setState({
-        errorMsg: '',
         disableB: false,
         guess: this.state.guess
       })
     }
   }
 
-  handleClick = () => {
+  handleClick() {
     if (this.state.button === 'Start') {
       this.getSecret(this.state.secret)
       this.setState({
@@ -140,6 +141,12 @@ class App extends Component {
     }
   }
 
+  handleEnter = (event) =>{
+    if(event.key === "Enter"){
+      this.handleClick();
+    }
+  }
+
   render () {
     const textFieldStyle = {
       width: '250px',
@@ -154,20 +161,22 @@ class App extends Component {
         <p>The target is to guess a 5 digit number. A "*" means the number is at the right spot,
           "+" means the number is in the 5 digit number but is in the wrong spot,
           and "-" means the number is not in the 5 digit number.</p>
-        <div style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}} >
-        <TextField
-          onChange={this.handleOnChange}         
-          disabled={this.state.disableT}
-          style={textFieldStyle}
-          variant="outlined"
-        />
-        <Button
-          variant="outlined"
-          color="primary"
-          disabled={this.state.disableB}
-          onClick={this.handleClick}>
-          {this.state.button}
-        </Button>
+        <div style={{flexDirection: 'row', alignItems: 'center'}} >
+          <TextField
+            onChange={this.handleOnChange}         
+            disabled={this.state.disableT}
+            style={textFieldStyle}
+            variant="outlined"
+            onKeyPress ={this.handleEnter}
+          />
+          <Button
+            style= {{marginLeft: '20'}}
+            variant="outlined"
+            color="primary"
+            disabled={this.state.disableB}
+            onClick={()=>{this.handleClick()}}>
+            {this.state.button}
+          </Button>
         </div>
         {this.state.enteredGuesses.map(item => item)}
       </div>
