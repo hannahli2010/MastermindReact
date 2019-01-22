@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hannahli2010.github.io/website/",
+  "homepage": "https://hannahli2010.github.io/MastermindReact/",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "gh-pages": "^2.0.1",

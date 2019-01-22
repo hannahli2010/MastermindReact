@@ -16,16 +16,9 @@ class App extends Component {
         4,
         5
       ],
-      guess: [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      guess: "",
       enteredGuesses: [<p>Guesses: </p>],
       button: 'Start'
-
     }
   }
 
@@ -43,19 +36,13 @@ class App extends Component {
   }
 
   output = (guess, secret) => {
-    let numString = this.toString(guess) + '   ';
+    console.log(guess);
+    let numString = guess + '   ';
     let done = true;
-    
-    let temp = [
-      1,
-      2,
-      3,
-      4,
-      5
-    ]
+    let temp = [1,2,3,4,5];
     
     for (let x = 0; x < 5; x++) {
-      temp[x] = guess[x];
+      temp[x] = guess.charAt(x);
     }
 
     for (let x = 0; x < 5; x++) {
@@ -98,27 +85,11 @@ class App extends Component {
     return text
   }
 
-  check = (guess) => {
-    for (let x = 0; x < 5; x++) {
-      if (guess[x] !== '*') {
-        return false
-      }
-    }
-    return true
-  }
-
   handleOnChange = (event) => {
-    if (event.target.value.length !== 5) {
       this.setState({
-        disableB: true
-      })
-    } else {
-      this.enterGuess(event.target.value, this.state.guess)
-      this.setState({
-        disableB: false,
-        guess: this.state.guess
-      })
-    }
+        disableB: event.target.value.length !== 5 ? true : false,
+        guess: event.target.value,
+      });
   }
 
   handleClick() {
@@ -127,22 +98,22 @@ class App extends Component {
       this.setState({
         button: 'Enter',
         disableT: false,
+        disableB: true,
         secret: this.state.secret,
         enteredGuesses: [<p>Guesses: </p>]
       })
     } else {
-      this.output(this.state.guess, this.state.secret)
-      if (this.check(this.state.guess)) {
-        this.setState({
-          button: 'Start',
-          disableT: true
-        })
-      }
+      this.output(this.state.guess, this.state.secret);
+      this.setState(nextProps => ({
+        guess: "",
+        disableB: nextProps.button === 'Start' ? false : true,
+        disableT: nextProps.button === 'Start' ? true : false,
+      }))
     }
   }
 
   handleEnter = (event) =>{
-    if(event.key === "Enter"){
+    if(event.key === "Enter" && this.state.guess.length === 5){
       this.handleClick();
     }
   }
@@ -163,6 +134,7 @@ class App extends Component {
           and "-" means the number is not in the 5 digit number.</p>
         <div style={{flexDirection: 'row', alignItems: 'center'}} >
           <TextField
+            value={this.state.guess}
             onChange={this.handleOnChange}         
             disabled={this.state.disableT}
             style={textFieldStyle}
