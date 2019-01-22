@@ -1,13 +1,13 @@
 {
-  "main.css": "/website/static/css/main.a41c7239.chunk.css",
-  "main.js": "/website/static/js/main.19205bf7.chunk.js",
-  "main.js.map": "/website/static/js/main.19205bf7.chunk.js.map",
-  "static/js/1.3ebf2ebe.chunk.js": "/website/static/js/1.3ebf2ebe.chunk.js",
-  "static/js/1.3ebf2ebe.chunk.js.map": "/website/static/js/1.3ebf2ebe.chunk.js.map",
-  "runtime~main.js": "/website/static/js/runtime~main.df8eefd1.js",
-  "runtime~main.js.map": "/website/static/js/runtime~main.df8eefd1.js.map",
-  "static/css/main.a41c7239.chunk.css.map": "/website/static/css/main.a41c7239.chunk.css.map",
-  "index.html": "/website/index.html",
-  "precache-manifest.21f2c82ff8d3a4c7ae4e17ab60539405.js": "/website/precache-manifest.21f2c82ff8d3a4c7ae4e17ab60539405.js",
-  "service-worker.js": "/website/service-worker.js"
+  "main.css": "/MastermindReact/static/css/main.a41c7239.chunk.css",
+  "main.js": "/MastermindReact/static/js/main.20071301.chunk.js",
+  "main.js.map": "/MastermindReact/static/js/main.20071301.chunk.js.map",
+  "static/js/1.3ebf2ebe.chunk.js": "/MastermindReact/static/js/1.3ebf2ebe.chunk.js",
+  "static/js/1.3ebf2ebe.chunk.js.map": "/MastermindReact/static/js/1.3ebf2ebe.chunk.js.map",
+  "runtime~main.js": "/MastermindReact/static/js/runtime~main.5a22d941.js",
+  "runtime~main.js.map": "/MastermindReact/static/js/runtime~main.5a22d941.js.map",
+  "static/css/main.a41c7239.chunk.css.map": "/MastermindReact/static/css/main.a41c7239.chunk.css.map",
+  "index.html": "/MastermindReact/index.html",
+  "precache-manifest.6ada8bfb267a103ba48ba793a3eb891f.js": "/MastermindReact/precache-manifest.6ada8bfb267a103ba48ba793a3eb891f.js",
+  "service-worker.js": "/MastermindReact/service-worker.js"
 }
